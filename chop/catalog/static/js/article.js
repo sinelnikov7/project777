@@ -1,6 +1,6 @@
 
 let url_article = `/api/article`
-let root_article = document.getElementById('for_example')
+let root_article = document.getElementById('articles')
 
 fetch(url_article).then((response)=>response.json()).then((article)=>{
     let html_atticle = `<div class="pop_tov_h1"><h1>Полезные статьи</h1>

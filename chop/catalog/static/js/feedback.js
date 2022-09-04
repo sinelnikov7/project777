@@ -37,6 +37,8 @@ fetch(url_feedback).then((response)=>response.json()).then((feedback)=>{
 
 function get_feedback(event){
   does_counter = event.target.id
+  qqq = event.target.class
+  console.log(does_counter)
   url = event.target.value
   url_null = 'null'
 

@@ -2,7 +2,8 @@ from rest_framework import routers
 from django.urls import path, include, re_path
 
 from .views import ArticleAll, NewProduct
-from .viewsets import ArticleViewSet, FeedbackViewSet, BrandViewSet, ProductViewSet
+from .viewsets import ArticleViewSet, FeedbackViewSet, BrandViewSet, ProductViewSet, AnimalCategoryViewSet, \
+    ProductCategoryViewSet
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
@@ -12,6 +13,8 @@ router.register(r'article', ArticleViewSet, basename='article')
 router.register(r'feedback', FeedbackViewSet, basename='feedback')
 router.register(r'brand', BrandViewSet, basename='brand')
 router.register(r'product', ProductViewSet, basename='product')
+router.register(r'animal_category', AnimalCategoryViewSet, basename='animal_category')
+router.register(r'product_category', ProductCategoryViewSet, basename='product_category')
 
 
 schema_view = get_schema_view(

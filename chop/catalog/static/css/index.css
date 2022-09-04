@@ -43,6 +43,7 @@ margin:0px;
     font-size: 19px;
     margin-left: 15px;
     text-decoration: none;
+    cursor:pointer;
 }
 
 .adress_2{
@@ -147,6 +148,7 @@ A:hover {
     font-size: 20px;
     margin-left: 50px;
     text-decoration: none;
+    cursor:pointer;
 }
 
 .foot{
@@ -166,6 +168,7 @@ A:hover {
 .content{
 
   background-color:#f6f6f7;
+  min-height: 78vh;
 }
 
 .foot3{
@@ -235,7 +238,20 @@ A:hover {
     height: 87px;
     border: 1px solid #ece4e4;
     box-shadow: 0.4em 0.4em 5px rgba(0, 105, 113, 0.7);
+    cursor:pointer;
+}
 
+.category_animal_detail:hover{
+    align-items: center;
+    display: flex;
+    background-color: white;
+    margin: 15px;
+    padding: 15px;
+    border-radius: 5px;
+    height: 87px;
+    border: 1px solid #ece4e4;
+    box-shadow: 0.4em 0.4em 5px rgba(137, 146, 147, 0.7);
+    color:#00A0AC;
 }
 
 .all_need{
@@ -244,6 +260,7 @@ A:hover {
   font-size: 19px;
   padding-left: 15%;
   padding-right: 20%;
+  padding-bottom: 20px;
   background-color:white;
 
 }
@@ -479,6 +496,15 @@ margin-top: 50px;
     margin-top:10px;
     font-size: 20px;
     background-color:white;
+    margin-bottom:0px;
+    padding-top:1px;
+}
+
+.all_div_h1{
+
+
+    margin-top:10px;
+    font-size: 20px;
     margin-bottom:0px;
     padding-top:1px;
 }
@@ -965,4 +991,54 @@ body.modal-open {
   -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
   line-height: 1.3em;
+}
+
+.catalog_title{
+
+    font-size: 20px;
+    margin-bottom:0px;
+    align-items: center;
+}
+
+.pop_tov_h2{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right:18%;
+    font-size: 20px;
+}
+
+.page_cat{
+    display:flex;
+}
+
+.filters_radio{
+    background-color: white;
+    border: 1px solid #ece4e4;
+    border-radius: 5px;
+    margin-top:20px;
+    margin-left:10px;
+    min-width:240px;
+    display:block;
+    padding:5px;
+    padding-top:10px;
+    padding-right:10px;
+}
+.products{
+    width:100%;
+    display:inline;
+    margin-right:20px;
+}
+
+.filters_check-box{
+    background-color: white;
+    border: 1px solid #ece4e4;
+    border-radius: 5px;
+    margin-top:20px;
+    margin-left:10px;
+    min-width:240px;
+    display:block;
+    padding:5px;
+    padding-top:10px;
+    padding-right:10px;
 }

@@ -1,19 +1,19 @@
-let url_new_product = `/api/new_product/?ordering=-id`
-let root_new_product = document.getElementById('new_product')
+let all_product = `/api/new_product/?ordering=id`
+let root_all_product = document.getElementById('all_product')
+let how_many = 0
 
 
 
 
-fetch(url_new_product).then((response)=>response.json()).then((product)=>{
-
-html = `<div class="new_div_h1">
-            <div class="pop_tov_h1"><h1 class="empty">Новинки</h1>
+fetch(all_product).then((response)=>response.json()).then((product)=>{
+html = `<div class="all_div_h1">
+            <div class="pop_tov_h1"><h1 class="empty">Популярные товары</h1>
             <div>
-             <button  class="but_prev_dis" id="previous_article" onClick="get_new_product(event)" value="${ product.links.previous }">◂</button>
-             <button class="but_next_act" id="next_article" onClick="get_new_product(event)" value="${ product.links.next }">▸</button></div>
+             <button  class="but_prev_dis" id="previous_article" onClick="all_get_product(event)" value="${ product.links.previous }">◂</button>
+             <button class="but_next_act" id="next_article" onClick="all_get_product(event)" value="${ product.links.next }">▸</button></div>
          </div>
         </div>
-        <div class="new_div">`
+        <div class="all_product">`
 
 for(let i in product.results){
       html +=  `<div class="product">
@@ -32,11 +32,11 @@ for(let i in product.results){
         </div>`
 }
     html += `</div>
-    <div class="but2"><div><button class="myButton2" onClick="get_all_product(event)">Смотреть больше товаров</button></div></div>`
-    root_new_product.innerHTML = html
+    <div class="but1"><div><button class="myButton2" onClick="get_all_product(event)">Смотреть больше товаров</button></div></div>`
+    root_all_product.innerHTML = html
 })
 
-function get_new_product(event){
+function all_get_product(event){
   url = event.target.value
   url_null = 'null'
   if (url != url_null){
@@ -59,14 +59,14 @@ function get_new_product(event){
             class_button_next = "but_next_act"
         }
 
-        html = `<div class="new_div_h1">
-            <div class="pop_tov_h1"><h1 class="empty">Новинки</h1>
+        html = `<div class="all_div_h1">
+            <div class="pop_tov_h1"><h1 class="empty">Популярные товары</h1>
             <div>
-             <button  class="${class_button_previous}" id="previous_article" onClick="get_new_product(event)" value="${ product.links.previous }">◂</button>
-             <button class="${class_button_next}" id="next_article" onClick="get_new_product(event)" value="${ product.links.next }">▸</button></div>
+             <button  class="${class_button_previous}" id="previous_article" onClick="all_get_product(event)" value="${ product.links.previous }">◂</button>
+             <button class="${class_button_next}" id="next_article" onClick="all_get_product(event)" value="${ product.links.next }">▸</button></div>
          </div>
         </div>
-        <div class="new_div">`
+        <div class="all_product">`
 
 for(let i in product.results){
       html +=  `<div class="product">
@@ -85,9 +85,7 @@ for(let i in product.results){
         </div>`
 }
     html += `</div>
-    <div class="but2"><div><button class="myButton2" onClick="get_all_product(event)">Смотреть больше товаров</button></div></div>`
-    root_new_product.innerHTML = html
+    <div class="but1"><div><button class="myButton2" onClick="get_all_product(event)">Смотреть больше товаров</button></div></div>`
+    root_all_product.innerHTML = html
 })
 }}
-
-

@@ -26,7 +26,7 @@
         </div>
         <div class="input_header"><input class="input_h" placeholder="Поиск" type="text" value=""></div>
         <div class="adress_1"><a class="a_hed2" href="/">Главная</a></div>
-        <div class="adress_1"><a class="a_hed2" href="#">Каталог</a></div>
+        <div class="adress_1"><a class="a_hed2"  onClick="get_all_product(event)" href="#catalog">Каталог</a></div>
         <div class="adress_1"><a class="a_hed2" href="#">Акции</a></div>
         <div class="adress_1"><a class="a_hed2" href="#">Статьи</a></div>
         <div class="adress_1"><div class="korz"><a href="#" class="a_icon_hed1"><img class="nav_icon3" src="{% static 'img/1.jpg' %}" alt=""></a>
@@ -34,106 +34,26 @@
     </div>
 
 </header>
+
 <div class="content" id="content">
 
-    <div class="category_animal">
+    <div id="category_animal"></div>
 
-        {% for i in category %}
-        <div class="category_animal_detail">
-            <img src="{{ i.image.url }}" class="main-image" alt=""><p>{{ i.name }}</p>
-        </div>
-        {% endfor %}
+    <div id="all_need"></div>
 
-    </div>
+    <div id="all_product"></div>
 
-    <div class="all_need">
-        <div class="all_need0">
-            <div>
-                <h1 class="h1_1">Всё, что нужно вашему питомцу в 9 мин от метро Малиновка</h1>
-            </div>
-            <div class="all_need1">
-                <div class="all_need2"></div>
-                <div class="all_need3"><strong>Более 5000 товаров</strong> для животных в наличии</div>
-                <div class="all_need2"></div>
-                <div class="all_need3"><strong>Вкусные сюрпризы</strong> для ваших питомцев в магазине</div>
-            </div>
-            <button class="my_button">Выбрать товар</button>
-        </div>
-        <div>
-            <img class="" src="{% static 'img/5.svg' %}" alt="">
-        </div>
-    </div>
-
-    <div>
-         <div class="pop_tov_h1"><h1>Популярные товары</h1></div>
-    </div>
-    <div class="all_product">
-        {% for product in products %}
-        <div class="product">
-            <div class="img_div_prod"><img class="prod_img" src="{{ product.image.url }}" alt=""></div>
-            <div class="name_div_prod"><strong>{{ product.name }}</strong></div>
-
-            <div class="offer_div">
-                <div class="offer_div_prod"><p>{{ product.first_offer }}{{ product.productcategory.measure }}</p></div>
-                <div class="offer_div_prod"><p>{{ product.second_offer }}{{ product.productcategory.measure }}</p></div>
-            </div>
-            <div class="offer_div">
-                <div class="price_prod_div"><strong>{{ product.price }} BYN</strong></div>
-                <div class="korz"><a href="#" class="a_icon_hed1"><img class="nav_icon3" src="{% static 'img/11.jpg' %}" alt=""></a></div>
-            </div>
-            <div class="offer_button"><button class="myButton">Купить в 1 клик</button></div>
-        </div>
-        {% endfor %}
-    </div>
-    <div class="but1"><div><a href="#" class="myButton2">Смотреть больше товаров</a></div></div>
+    <div id="akcii" class="all_product"></div>
 
 
+    <div id="new_product"></div>
 
 
+    <div id="brand"></div>
 
+    <div class="feedbacks" id="feedback"></div>
 
-
-    <div class="all_product">
-
-        <div class="akcii">
-           <div class="akcii1">
-               <strong>Скидка 25% на первый заказ любого товара на сумму от 50BYN</strong>
-               <img src="{% static 'img/12.jpg' %}" alt="">
-
-           </div>
-           <div><button class="myButton">Перейти к выбору товара</button></div>
-            
-
-       </div>
-       <div class="akcii">
-           <div class="akcii1">
-               <strong>Получите игрушку в подарок при сумме заказа от 200BYN</strong>
-               <img src="{% static 'img/12.jpg' %}" alt="">
-
-           </div>
-           <div><button class="myButton">Перейти к выбору товара</button></div>
-
-
-      </div>
-
-    </div>
-
-
-    <div id="new_product">
-
-
-
-    </div>
-
-
-    <div id="brand">
-    </div>
-
-    <div class="feedbacks" id="feedback">
-    </div>
-
-    <div id="for_example">
-    </div>
+    <div id="articles"></div>
 
     <div class="all_need">
         <div class="last0">
@@ -195,8 +115,8 @@
     <div class="foot1">
         <div class="adress_1"><img class="logo2" src="{% static 'img/logo2.jpg' %}" alt=""></div>
         <div class="foot">
-            <div class="adress_1"><a class="a_foot1" href="#">Главная</a></div>
-            <div class="adress_1"><a class="a_foot1" href="#">Каталог</a></div>
+            <div class="adress_1"><a class="a_foot1" href="/">Главная</a></div>
+            <div class="adress_1"><a class="a_foot1" onClick="get_all_product(event)">Каталог</a></div>
             <div class="adress_1"><a class="a_foot1" href="#">Акции</a></div>
             <div class="adress_1"><a class="a_foot1" href="#">Статьи</a></div>
         </div>
@@ -252,6 +172,13 @@
 <script src="{% static 'js/feedback.js' %}"></script>
 <script src="{% static 'js/brand.js' %}"></script>
 <script src="{% static 'js/new_product.js' %}"></script>
+<script src="{% static 'js/akcii.js' %}"></script>
+<script src="{% static 'js/all_product.js' %}"></script>
+<script src="{% static 'js/get_all_product.js' %}"></script>
+<script src="{% static 'js/all_need.js' %}"></script>
+<script src="{% static 'js/category_animal.js' %}"></script>
+<script src="{% static 'js/get_product_div.js' %}"></script>
+
 </body>
 </html>
 

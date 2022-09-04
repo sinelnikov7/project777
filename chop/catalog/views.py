@@ -1,4 +1,4 @@
-from django.db.models import Count
+from django.db.models import Count, Avg
 from django.shortcuts import render
 from .models import *
 
@@ -21,6 +21,11 @@ def index(request):
     # # print(brand.product_set.count())
     # print(brand)
     brand = Brand.objects.annotate(Count('product')).order_by('-product__count')[:2]
+    prices = Brand.objects.annotate(Count('product__price'))
+    for price in prices:
+        print(price.product__price__count)
+        print(price)
+        # print(dir(price))
 
 
     return render(request, 'index.html', context)

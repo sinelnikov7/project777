@@ -22,18 +22,29 @@ class FeedbackSerializer(serializers.ModelSerializer):
         model = Feedback
         fields = '__all__'
 
-
-class ProductSerializer(serializers.ModelSerializer):
-    productcategory = ProductCategorySerializer()
-    class Meta:
-        model = Product
-        fields = '__all__'
-
 class BrandSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Brand
         depth = 1
         fields = ('id','name','image', 'product_set',)
+
+class ProductSerializer(serializers.ModelSerializer):
+    # productcategory = ProductCategorySerializer()
+    # brand = BrandSerializer()
+    class Meta:
+        model = Product
+        exclude = ('author',)
+        depth = 1
+
+
+
+class AnimalCategorySerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = AnimalCategory
+        depth = 1
+        fields = '__all__'
+
 
 
