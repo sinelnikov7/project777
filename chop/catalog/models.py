@@ -72,6 +72,7 @@ class Product(models.Model):
     count = models.IntegerField(verbose_name='В наличии')
     first_offer = models.IntegerField(verbose_name='Первое предложение кол-ва', default=1)
     second_offer = models.IntegerField(verbose_name='Второе предложение кол-ва', default=1)
+    views = models.IntegerField(verbose_name="Просмотры", default=0)
 
     def __str__(self):
         return self.name

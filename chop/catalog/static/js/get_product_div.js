@@ -1,6 +1,6 @@
 
 function get_product_div(product){
-console.log('Hi hi hi')
+
 let root_category_url = document.getElementById('products')
 let html_opapa =``
     for(let i in product.results){
