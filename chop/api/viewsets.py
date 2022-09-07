@@ -1,6 +1,7 @@
 from django.db.models import Count
 from rest_framework import viewsets, mixins
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from rest_framework.response import Response
 from rest_framework.viewsets import GenericViewSet
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import filters
@@ -78,6 +79,14 @@ class ProductViewSet(viewsets.ModelViewSet):
                 return self.queryset
         else:
             return self.queryset
+
+    def retrieve(self, request, *args, **kwargs):
+        instance = self.get_object().id
+        value = Product.objects.get(id=instance)
+        value.views += 1
+        value.save()
+        serializer = self.get_serializer(value)
+        return Response(serializer.data)
 
 
 class AnimalCategoryViewSet(viewsets.ModelViewSet):

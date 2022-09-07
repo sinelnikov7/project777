@@ -1,5 +1,11 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.views import LoginView, LogoutView
 from django.db.models import Count, Avg
 from django.shortcuts import render
+from django.urls import reverse_lazy
+from django.views.generic import CreateView
+
+from .forms import RegisterUserForm
 from .models import *
 
 def index(request):
@@ -29,4 +35,18 @@ def index(request):
 
 
     return render(request, 'index.html', context)
+
+
+class RegisterUserView(CreateView):
+    model = AdvUser
+    template_name = 'register.html'
+    form_class = RegisterUserForm
+    success_url = reverse_lazy('catalog:index')
+
+class UserLoginView(LoginView):
+    template_name = 'login.html'
+    success_url = reverse_lazy('catalog:index')
+
+class UserLogoutView(LoginRequiredMixin, LogoutView):
+    template_name = 'logout.html'
 # Create your views here.

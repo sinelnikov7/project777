@@ -5,8 +5,8 @@ let root_category_url = document.getElementById('products')
 let html_opapa =``
     for(let i in product.results){
       html_opapa +=  `<div class="product">
-            <div class="img_div_prod"><img class="prod_img" src="${product.results[i].image}" alt=""></div>
-            <div class="name_div_prod"><strong>${product.results[i].name}</strong></div>
+            <div class="img_div_prod"><img class="prod_img" src="${product.results[i].image}" alt="" id="${product.results[i].id}" onClick="product_detail(event)"></div>
+            <div class="name_div_prod"><strong id="${product.results[i].id}" onClick="product_detail(event)">${product.results[i].name}</strong></div>
 
             <div class="offer_div">
                 <div class="offer_div_prod"><p>${product.results[i].first_offer}${product.results[i].productcategory.measure}</p></div>

@@ -98,13 +98,13 @@ function add_feedback(event){
     <div class="button_close" onClick="close_detail(event)"><img class="close_img" src="static/img/close.jpg" alt=""></div>
     <form name="add_feedback" id="add_feedback">
     <label>Имя: </label>
-    <input id="name" type="text" name="name" placeholder="Вася пупкин"><br><br>
+    <input id="name" type="text" name="name" placeholder="Вася пупкин" class="input"><br><br>
     <label>Телефон: </label>
-    <input id="tel" type="tel" name="tel" placeholder="+375336544344"><br><br>
+    <input id="tel" type="tel" name="tel" placeholder="+375336544344" class="input"><br><br>
     <label>Имя питомца: </label>
-    <input id="petName" type="text" name="petName" placeholder="Барсик"><br><br>
+    <input id="petName" type="text" name="petName" placeholder="Барсик" class="input"><br><br>
     <label>Отзыв: </label><br>
-    <textarea id="content" name="content" rows="20" cols="40" placeholder="Введите текст..."></textarea>
+    <textarea class="input" id="content" name="content" rows="20" cols="40" placeholder="Введите текст..."></textarea>
     <div class="but1"><button type="button" class="myButton2" onClick="send_feedback(event)">Отправить</button></div>
     </form>
     </div></div>`

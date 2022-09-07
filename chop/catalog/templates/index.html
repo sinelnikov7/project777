@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Територия ZOO</title>
+    <title>{% block title %}Територия ZOO{% endblock %}</title>
     <link rel="icon" href="static/img/favicon.ico">
     <link rel="stylesheet" type="text/css"
     href="{% static 'css/index.css' %}">
@@ -29,13 +29,18 @@
         <div class="adress_1"><a class="a_hed2"  onClick="get_all_product(event)" href="#catalog">Каталог</a></div>
         <div class="adress_1"><a class="a_hed2" href="#">Акции</a></div>
         <div class="adress_1"><a class="a_hed2" href="#">Статьи</a></div>
+        <div class="adress_1"><a class="a_hed2" href="{% url 'catalog:register' %}">Регистрация</a></div>
+        <div class="adress_1"><a class="a_hed2" href="{% url 'catalog:login' %}">Вход</a></div>
+        {% if user.is_authenticated  %}
+        <div class="adress_1"><a class="a_hed2" href="{% url 'catalog:logout' %}">Выход</a></div>
+        {% endif %}
         <div class="adress_1"><div class="korz"><a href="#" class="a_icon_hed1"><img class="nav_icon3" src="{% static 'img/1.jpg' %}" alt=""></a>
             <p>1</p></div></div>
     </div>
 
 </header>
 
-<div class="content" id="content">
+<div class="content" id="content">{% block content %}
 
     <div id="category_animal"></div>
 
@@ -80,11 +85,11 @@
         <div>
             <img class="" src="{% static 'img/8.jpg' %}" alt="">
         </div>
-    </div>
+    {% endblock %}</div>
 
 
 
-
+{% block info %}
 <div class="info">
     <div id="map"></div>
     <div class="info_again">
@@ -104,12 +109,13 @@
     </div>
 
 </div>
+
 <div id="article_detail">
 
 </div>
 <div id="push">
 
-</div>
+</div>{% endblock %}
 
 <footer>
     <div class="foot1">
@@ -119,6 +125,11 @@
             <div class="adress_1"><a class="a_foot1" onClick="get_all_product(event)">Каталог</a></div>
             <div class="adress_1"><a class="a_foot1" href="#">Акции</a></div>
             <div class="adress_1"><a class="a_foot1" href="#">Статьи</a></div>
+            <div class="adress_1"><a class="a_foot1" href="{% url 'catalog:register' %}">Регистрация</a></div>
+            <div class="adress_1"><a class="a_hed2" href="{% url 'catalog:login' %}">Вход</a></div>
+            {% if user.is_authenticated  %}
+            <div class="adress_1"><a class="a_hed2" href="{% url 'catalog:logout' %}">Выход</a></div>
+            {% endif %}
         </div>
 
 
@@ -178,6 +189,7 @@
 <script src="{% static 'js/all_need.js' %}"></script>
 <script src="{% static 'js/category_animal.js' %}"></script>
 <script src="{% static 'js/get_product_div.js' %}"></script>
+<script src="{% static 'js/product_detail.js' %}"></script>
 
 </body>
 </html>
